@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <% include ./partials/header %>
+  <body class="container">
+      <h4><%=title%></h4>
+    <main>
+      <div class="row">
+        <form class="col s12" action="/urls" method="post">
+          <div class="row">
+            <div class="input-field col s6">
+              <i class="material-icons prefix">http</i>
+              <input type="text" placeholder="Your original URL here" name="url" required>
+            </div>
+          </div>
+          <input type="submit" value="Shorten url" class="waves-effect waves-light btn blue">
+        </form>
+      </div>
+    </main>
+    <% include ./partials/footer %>
+  </body>
+</html>

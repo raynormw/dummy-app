@@ -1,0 +1,32 @@
+<!-- views/layout.ejs -->
+
+<!DOCTYPE html>
+<html>
+  <% include ./partials/header %>
+  <body class="container">
+    <h4><%= title %></h4>
+    <main>
+    <table class="highlight">
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>Original URL</th>
+          <th>Shortener URL</th>
+          <th>Click count</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% list.forEach((element, index) => { %>
+        <tr>
+          <td><%= index+1%></td>
+          <td><%= element.url%></td>
+          <td><a href="/users/<%= element.short_url%>" onclick="window.open('<%= element.url %>');"><%= element.short_url%></a></td>
+          <td><%= element.count || 0%></td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    </main>
+    <% include ./partials/footer %>
+  </body>
+</html>
