@@ -14,11 +14,14 @@ router.get('/urls', function(req, res) {
 });
 
 router.post('/urls', parseUrlEncoded, function(req, res) {
+  let pattern = /https?:\/\//g;
+  let link = req.body.url.replace(pattern, '');
+
   db.Data.create({
-    url: req.body.url
+    url: link
   })
   .then(() => {
-    console.log('\nInsert todo success!\n');
+    console.log('\nInsert url success!\n');
     res.redirect('/');
   })
   .catch(err => console.log(err.message));

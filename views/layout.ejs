@@ -20,7 +20,7 @@
         <tr>
           <td><%= index+1%></td>
           <td><%= element.url%></td>
-          <td><a href="/users/<%= element.short_url%>" onclick="window.open('<%= element.url %>');"><%= element.short_url%></a></td>
+          <td><a href="/users/<%= element.short_url%>" onclick="window.open('http://<%= element.url %>');"><%= element.short_url%></a></td>
           <td><%= element.count || 0%></td>
         </tr>
         <% }); %>
