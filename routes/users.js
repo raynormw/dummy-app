@@ -4,7 +4,9 @@ const db = require('../models');
 
 /* GET users listing. */
 router.get('/', function(req, res) {
-  db.Data.findAll()
+  db.Data.findAll({
+    order: "id ASC"
+  })
   .then((element) => {
     res.render('layout', {list: element, title: 'Hacktiv8 List URLs'});
   })
